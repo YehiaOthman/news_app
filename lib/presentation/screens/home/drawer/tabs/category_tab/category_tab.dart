@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/presentation/screens/home/tabs/category_tab/category_data_class/category_data_class.dart';
-import 'package:news_app/presentation/screens/home/tabs/category_tab/category_item_view/category_item_view.dart';
-import '../../../../../config/styles/light_app_styles.dart';
-import '../../../../../core/strings_manger.dart';
+import '../../../../../../config/styles/light_app_styles.dart';
+import '../../../../../../core/strings_manger.dart';
+import 'category_data_class/category_data_class.dart';
+import 'category_item_view/category_item_view.dart';
 
+typedef OnCategoryClicked = void Function(CategoryDM category);
 class CategoryTab extends StatelessWidget {
-  CategoryTab({super.key});
-
+  CategoryTab({super.key , required this.onCategoryClicked});
+  OnCategoryClicked onCategoryClicked;
   List<CategoryDM> categories = CategoryDM.categoryList;
 
   @override
@@ -33,7 +34,9 @@ class CategoryTab extends StatelessWidget {
             itemBuilder: (context, index) => Padding(
               padding: REdgeInsets.all(12),
               child:
-                  CategoryItemView(categoryDM: categories[index], index: index),
+                  InkWell(
+                    onTap: () => onCategoryClicked(categories[index]),
+                      child: CategoryItemView(categoryDM: categories[index], index: index,)),
             ),
             itemCount: categories.length,
           ))

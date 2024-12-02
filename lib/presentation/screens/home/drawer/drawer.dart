@@ -4,7 +4,8 @@ import '../../../../config/styles/light_app_styles.dart';
 import '../../../../core/colors_manger.dart';
 import '../../../../core/strings_manger.dart';
 
-Widget buildDrawer(context, VoidCallback categoryTab, VoidCallback settingsTab) {
+Widget buildDrawer(
+    context, VoidCallback categoryTab, VoidCallback settingsTab) {
   return Drawer(
     width: MediaQuery.of(context).size.width * 0.7.w,
     child: Column(
@@ -24,7 +25,7 @@ Widget buildDrawer(context, VoidCallback categoryTab, VoidCallback settingsTab) 
               categoryTab();
               Navigator.pop(context);
             },
-            child: buildDrawerTabs(Icons.menu, 'Categories')),
+            child: buildDrawerTabs(Icons.list, 'Categories')),
         InkWell(
             onTap: () {
               settingsTab();

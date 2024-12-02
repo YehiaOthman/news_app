@@ -3,9 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/config/styles/light_app_styles.dart';
 import 'package:news_app/core/assets_manger.dart';
 import 'package:news_app/core/strings_manger.dart';
-import 'package:news_app/presentation/screens/home/tabs/category_tab/category_tab.dart';
-import 'package:news_app/presentation/screens/home/tabs/settings_tab/settings_tab.dart';
+import 'package:news_app/presentation/screens/home/drawer/tabs/category_tab/category_data_class/category_data_class.dart';
+import 'package:news_app/presentation/screens/home/drawer/tabs/category_tab/category_details/category_details.dart';
 import 'drawer/drawer.dart';
+import 'drawer/tabs/category_tab/category_tab.dart';
+import 'drawer/tabs/settings_tab/settings_tab.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -15,14 +17,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<Widget> tabs = [
-     CategoryTab(),
-    const SettingsTab(),
-  ];
-  int currentTab = 0;
+  late Widget selectedWidget;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    selectedWidget = CategoryTab(onCategoryClicked: onClicked);
+  }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -39,23 +44,30 @@ class _HomeState extends State<Home> {
           style: LightAppStyles.titles,
         ),
       ),
-      drawer: buildDrawer(context ,selectCategory ,selectSettings) ,
+      drawer: buildDrawer(context, selectCategory, selectSettings),
       body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage(AssetsManger.splashPattern))
-        ),
-          child: tabs[currentTab]),
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(AssetsManger.splashPattern))),
+          child: selectedWidget),
     );
   }
-  void selectCategory(){
+
+  void selectCategory() {
     setState(() {
-      currentTab = 0;
-    });
-  }
-  void selectSettings(){
-    setState(() {
-      currentTab = 1;
+      selectedWidget = CategoryTab(onCategoryClicked: onClicked);
     });
   }
 
+  void selectSettings() {
+    setState(() {
+      selectedWidget = const SettingsTab();
+    });
+  }
+
+  void onClicked(CategoryDM category) {
+    setState(() {
+      selectedWidget = CategoryDetails(categoryDM: category);
+    });
+  }
 }
