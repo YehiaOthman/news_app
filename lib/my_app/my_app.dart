@@ -5,6 +5,7 @@ import 'package:news_app/core/routes_manger.dart';
 import 'package:news_app/presentation/screens/home/drawer/tabs/category_tab/category_details/articles_item_widget/articles_details/articles_details.dart';
 import 'package:news_app/presentation/screens/home/drawer/tabs/category_tab/category_details/category_details.dart';
 import 'package:news_app/presentation/screens/home/home.dart';
+import 'package:news_app/presentation/screens/search_screen/search_screen.dart';
 import 'package:news_app/presentation/screens/splash/splash.dart';
 
 class MyApp extends StatelessWidget {
