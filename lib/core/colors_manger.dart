@@ -10,4 +10,5 @@ class ColorsManger{
   static const Color general = Color(0XFF4882CF);
   static const Color science = Color(0XFFF2D352);
   static const Color technology = Colors.green;
+  static const Color articleTitle = Color(0XFF79828B);
 }

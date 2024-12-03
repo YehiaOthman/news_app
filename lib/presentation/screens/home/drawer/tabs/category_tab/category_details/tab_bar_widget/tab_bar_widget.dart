@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news_app/config/styles/light_app_styles.dart';
 import 'package:news_app/data/api/model/sources_response/source.dart';
 import 'package:news_app/presentation/screens/home/drawer/tabs/category_tab/category_details/articles_item_widget/articles_item_widget.dart';
 import 'package:news_app/presentation/screens/home/drawer/tabs/category_tab/category_details/tab_bar_widget/source_tab_item/source_tab_item.dart';
@@ -34,6 +36,7 @@ class _SourcesTabWidgetState extends State<SourcesTabWidget> {
                 tabs: widget.sources.map((e) => SourceTabItem(source: e, isSelected: widget.sources.indexOf(e) == selectedIndex  ?  true : false,) ,).toList()
             )
         ),
+        SizedBox(height: 10.h,),
         ArticlesItemWidget(sources: widget.sources[selectedIndex])
       ],
     );

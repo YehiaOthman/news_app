@@ -5,6 +5,7 @@ import 'package:news_app/core/assets_manger.dart';
 import 'package:news_app/core/strings_manger.dart';
 import 'package:news_app/presentation/screens/home/drawer/tabs/category_tab/category_data_class/category_data_class.dart';
 import 'package:news_app/presentation/screens/home/drawer/tabs/category_tab/category_details/category_details.dart';
+import 'package:news_app/presentation/screens/search_screen/search_screen.dart';
 import 'drawer/drawer.dart';
 import 'drawer/tabs/category_tab/category_tab.dart';
 import 'drawer/tabs/settings_tab/settings_tab.dart';
@@ -34,7 +35,8 @@ class _HomeState extends State<Home> {
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
             child: GestureDetector(
-                onTap: () => print('search'), child: const Icon(Icons.search)),
+                onTap: () => showSearch(context: context, delegate: SearchScreen()),
+                child: const Icon(Icons.search)),
           )
         ],
         bottom:
