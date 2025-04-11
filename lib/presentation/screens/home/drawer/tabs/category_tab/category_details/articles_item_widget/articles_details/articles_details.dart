@@ -63,7 +63,7 @@ class ArticlesDetails extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     argus.publishedAt ?? '',
                     style: LightAppStyles.publishedAt,
@@ -106,8 +106,4 @@ class ArticlesDetails extends StatelessWidget {
       ),
     );
   }
-  // Future<void> urlLauncher(String url)async{
-  //   Uri urll = Uri.parse(url);
-  //   await LuncherUrl(urll);
-  // }
 }

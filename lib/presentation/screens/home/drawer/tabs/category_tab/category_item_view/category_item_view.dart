@@ -30,9 +30,11 @@ class CategoryItemView extends StatelessWidget {
               width: 132.w,
               height: 116.h,
             ),
-            Text(
-              categoryDM.title,
-              style: LightAppStyles.titles,
+            Expanded(
+              child: Text(
+                categoryDM.title,
+                style: LightAppStyles.titles,
+              ),
             )
           ],
         ),

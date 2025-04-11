@@ -16,7 +16,7 @@ class CategoryTab extends StatelessWidget {
     return Padding(
       padding: REdgeInsets.only(top: 12 , left: 22),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             StringsManger.homeCategories,
