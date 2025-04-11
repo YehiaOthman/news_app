@@ -4,11 +4,13 @@ class ArticlesResponse {
   String? status;
   num? totalResults;
   List<Article>? articles;
+  String? message;
 
   ArticlesResponse({
     this.status,
     this.totalResults,
     this.articles,
+    this.message,
   });
 
   ArticlesResponse.fromJson(dynamic json) {
@@ -19,6 +21,8 @@ class ArticlesResponse {
       json['articles'].forEach((v) {
         articles?.add(Article.fromJson(v));
       });
+    } else {
+      message = json['message'];
     }
   }
 
@@ -29,6 +33,7 @@ class ArticlesResponse {
     if (articles != null) {
       map['articles'] = articles?.map((v) => v.toJson()).toList();
     }
+    map['message'] = message;
     return map;
   }
 }

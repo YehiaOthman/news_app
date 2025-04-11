@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/colors_manger.dart';
 import 'package:news_app/data/api/api_manger/api_manger.dart';
-import 'package:news_app/data/api/model/articles_response/article.dart';
 import 'package:news_app/data/api/model/articles_response/articles_response.dart';
 import 'package:news_app/presentation/screens/home/drawer/tabs/category_tab/category_details/articles_item_widget/articles_item_view/articles_item_view.dart';
 
